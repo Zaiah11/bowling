@@ -1,3 +1,4 @@
+
 class Frame {
   constructor(roll) {
     this.next = null
@@ -24,21 +25,23 @@ class Bowling {
     const { head } = frames
 
     if (head === null) {
-      return this.handleFirstRoll(roll)
+      this.handleFirstRoll(roll)
     }
+    
+    else {
+      const { tail } = frames
+      const { rolls } = tail
+      const { first, second } = rolls
 
-    const { tail } = frames
-    const { rolls } = tail
-    const { first, second } = rolls
+      if (first !== null) {
 
-    if (first !== null) {
+        if (second !== null) {
+          this.handleFirstRollOfNewFrame(roll)
+        }
 
-      if (second !== null) {
-        this.handleFirstRollOfNewFrame(roll)
-      }
-
-      else {
-        this.handleSecondRollOfFrame(roll)
+        else {
+          this.handleSecondRollOfFrame(roll)
+        }
       }
     }
 
