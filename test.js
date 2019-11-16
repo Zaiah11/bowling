@@ -1,5 +1,5 @@
 const { expect } = require('chai')
-const { Bowling } = require('./bowling')
+const { Bowling } = require('./server/bowling')
 
 describe('Game', () => {
 
