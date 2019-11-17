@@ -1,4 +1,10 @@
 const addRoll = function(roll) {
+  if (this.bonusRound) {
+    this.handleBonusRoll(roll)
+    this.tally()
+  }
+
+  if (this.round >= 10) return null
 
   const { frames } = this
   const { head } = frames

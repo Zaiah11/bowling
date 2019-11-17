@@ -2,8 +2,9 @@ const { methods } = require('../methods/index')
 
 class Game {
   constructor() {
-    this.round = 1
+    this.round = 0
     this.total = null
+    this.bonusRound = 0
     this.frames = {
       head: null,
       tail: null

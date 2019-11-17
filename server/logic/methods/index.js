@@ -5,7 +5,8 @@ const { addRoll } = require('./addRoll')
 const { 
   handleFirstRoll,
   handleFirstRollOfNewFrame,
-  handleSecondRollOfFrame
+  handleSecondRollOfFrame,
+  handleBonusRoll
 } = require('./handleRolls')
 
 const methods = {
@@ -13,7 +14,8 @@ const methods = {
   addRoll,
   handleFirstRoll,
   handleFirstRollOfNewFrame,
-  handleSecondRollOfFrame
+  handleSecondRollOfFrame,
+  handleBonusRoll
 }
 
 exports.methods = methods
