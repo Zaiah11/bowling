@@ -46,7 +46,6 @@ describe('Game', () => {
     newGame.addRoll(10)
     newGame.addRoll(1)
     newGame.addRoll(1)
-    console.log(newGame.frames.head.next)
     expect(newGame.total).to.equal(35)
   })
 
@@ -57,6 +56,16 @@ describe('Game', () => {
     newGame.addRoll(3)
     newGame.addRoll(3)
     expect(newGame.total).to.equal(19)
+  })
+
+  it('should be able to handle multiple spares', () => {
+    const newGame = new Game()
+    newGame.addRoll(5)
+    newGame.addRoll(5)
+    newGame.addRoll(5)
+    newGame.addRoll(5)
+    newGame.addRoll(5)
+    expect(newGame.total).to.equal(35)
   })
 
   it('should keep track of rounds', () => {

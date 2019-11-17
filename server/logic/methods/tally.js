@@ -17,13 +17,13 @@ const tally = function() {
 
     if (round < 10) {
       if (multiplier) {
-        total += first
+        total += (first * Math.ceil(multiplier / 2))
         multiplier--
       }
 
       if (multiplier) {
         if (second) {
-          total += second
+          total += (second * Math.ceil(multiplier / 2))
           multiplier--
         }
       }
