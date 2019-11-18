@@ -12,14 +12,14 @@ const getTotal = function (node, round = 1) {
 
   let total = first + second
 
-  if (first === 10) total += handleStrike(node.next)
-  else if (first + second === 10) total += handleSpare(node.next)
+  if (first === 10) total += tallyStrike(node.next)
+  else if (first + second === 10) total += tallySpare(node.next)
 
   return total + getTotal(node.next, round + 1)
 }
 
 
-const handleStrike = function(node) {
+const tallyStrike = function(node) {
   if (!node) return 0 
 
   const { rolls } = node
@@ -33,7 +33,7 @@ const handleStrike = function(node) {
 }
 
 
-const handleSpare = function(node) {
+const tallySpare = function(node) {
   if (!node) return 0 
   return node.rolls.first
 }
