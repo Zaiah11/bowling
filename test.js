@@ -1,5 +1,5 @@
 const { expect } = require('chai')
-const { Game } = require('./server/logic/constructors/game')
+const { Game } = require('./server/bowling/constructors/game')
 
 describe('Game', () => {
 
@@ -30,6 +30,32 @@ describe('Game', () => {
     newGame.addRoll(6)
     const { tail } = newGame.frames
     expect(tail.rolls.first).to.equal(6)
+  })
+
+  it('should store the current frames score on the frame', () => {
+    const newGame = new Game()
+    newGame.addRoll(3)
+    newGame.addRoll(3)
+    const { tail } = newGame.frames
+    expect(tail.score).to.equal(6)
+  })
+
+  it('should update current frame score when frame is a strike', () => {
+    const newGame = new Game()
+    newGame.addRoll(10)
+    newGame.addRoll(5)
+    newGame.addRoll(5)
+    const { head } = newGame.frames
+    expect(head.score).to.equal(20)
+  })
+
+  it('should update current frame score when frame is a spare', () => {
+    const newGame = new Game()
+    newGame.addRoll(5)
+    newGame.addRoll(5)
+    newGame.addRoll(10)
+    const { head } = newGame.frames
+    expect(head.score).to.equal(20)
   })
 
   it('should handle strike', () => {

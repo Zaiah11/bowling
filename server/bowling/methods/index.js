@@ -1,7 +1,10 @@
 const { Frame } = require('../constructors/frame')
 
-const { tally } = require('./tally')
 const { addRoll } = require('./addRoll')
+const { 
+  tally,
+  getTotal
+ } = require('./tally')
 const { 
   handleFirstRoll,
   handleFirstRollOfNewFrame,
@@ -11,6 +14,7 @@ const {
 
 const methods = {
   tally,
+  getTotal,
   addRoll,
   handleFirstRoll,
   handleFirstRollOfNewFrame,

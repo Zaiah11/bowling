@@ -1,6 +1,6 @@
 
 const tally = function() {
-  this.total = getTotal(this.frames.head)
+  this.total = this.getTotal(this.frames.head)
 }
 
 
@@ -15,6 +15,7 @@ const getTotal = function (node, round = 1) {
   if (first === 10) total += tallyStrike(node.next)
   else if (first + second === 10) total += tallySpare(node.next)
 
+  node.score = total
   return total + getTotal(node.next, round + 1)
 }
 
@@ -38,4 +39,8 @@ const tallySpare = function(node) {
   return node.rolls.first
 }
 
-exports.tally = tally
+
+module.exports = {
+  tally,
+  getTotal
+}
