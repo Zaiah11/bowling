@@ -1,36 +1,43 @@
+
 const tally = function() {
-  
+
+  let total = 0
+  let round = 0
+
   const { frames } = this
   const { head } = frames
-
-  let round = 0
-  let total = 0
-  let multiplier = 0
+  
   let node = head
 
-  while (node) {
+  while(node) {
 
     const { rolls } = node
     const { first, second } = rolls
 
-    total += first + second
+    if (round <= 9) total += first + second
 
-    if (round < 10) {
-      if (multiplier) {
-        total += (first * Math.ceil(multiplier / 2))
-        multiplier--
-      }
+    if (first === 10) {
+      const next = node.next
+      if (next) {
 
-      if (multiplier) {
-        if (second) {
-          total += (second * Math.ceil(multiplier / 2))
-          multiplier--
+        if (round <= 9) total += next.rolls.first
+
+        if (next.rolls.first === 10) {
+          if (next.next) {
+            total += next.next.rolls.first
+          }
         }
+
+        else total += next.rolls.second
       }
     }
 
-    if (first === 10) multiplier += 2
-    else if (first + second === 10) multiplier += 1
+    else if (first + second === 10) {
+      const next = node.next
+      if (next) {
+        total += next.rolls.first
+      }
+    }
 
     round++
     node = node.next

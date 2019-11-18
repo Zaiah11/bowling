@@ -40,13 +40,23 @@ describe('Game', () => {
     expect(newGame.total).to.equal(20)
   })
 
-  it('should be able to handle multiple strikes', () => {
+  it('should be able to handle 2 consecutive strikes', () => {
     const newGame = new Game()
     newGame.addRoll(10)
     newGame.addRoll(10)
     newGame.addRoll(1)
     newGame.addRoll(1)
     expect(newGame.total).to.equal(35)
+  })
+
+  it('should be able to handle 3 consecutive strikes', () => {
+    const newGame = new Game()
+    newGame.addRoll(10)
+    newGame.addRoll(10)
+    newGame.addRoll(10)
+    newGame.addRoll(1)
+    newGame.addRoll(1)
+    expect(newGame.total).to.equal(65)
   })
 
   it('should handle spare', () => {
@@ -58,7 +68,7 @@ describe('Game', () => {
     expect(newGame.total).to.equal(19)
   })
 
-  it('should be able to handle multiple spares', () => {
+  it('should be able to handle 2 consecutive spares', () => {
     const newGame = new Game()
     newGame.addRoll(5)
     newGame.addRoll(5)
@@ -66,6 +76,19 @@ describe('Game', () => {
     newGame.addRoll(5)
     newGame.addRoll(5)
     expect(newGame.total).to.equal(35)
+  })
+
+  it('should be able to handle 3 consecutive spares', () => {
+    const newGame = new Game()
+    newGame.addRoll(5)
+    newGame.addRoll(5)
+    newGame.addRoll(5)
+    newGame.addRoll(5)
+    newGame.addRoll(5)
+    newGame.addRoll(5)
+    newGame.addRoll(5)
+    newGame.addRoll(0)
+    expect(newGame.total).to.equal(50)
   })
 
   it('should keep track of rounds', () => {
