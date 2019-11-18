@@ -1,49 +1,41 @@
 
 const tally = function() {
+  this.total = getTotal(this.frames.head)
+}
 
-  let total = 0
-  let round = 0
 
-  const { frames } = this
-  const { head } = frames
-  
-  let node = head
+const getTotal = function (node, round = 1) {
+  if (!node || round > 10) return 0
 
-  while(node) {
+  const { rolls } = node
+  const { first, second } = rolls
 
-    const { rolls } = node
-    const { first, second } = rolls
+  let total = first + second
 
-    if (round <= 9) total += first + second
+  if (first === 10) total += handleStrike(node.next)
+  else if (first + second === 10) total += handleSpare(node.next)
 
-    if (first === 10) {
-      const next = node.next
-      if (next) {
+  return total + getTotal(node.next, round + 1)
+}
 
-        if (round <= 9) total += next.rolls.first
 
-        if (next.rolls.first === 10) {
-          if (next.next) {
-            total += next.next.rolls.first
-          }
-        }
+const handleStrike = function(node) {
+  if (!node) return 0 
 
-        else total += next.rolls.second
-      }
-    }
+  const { rolls } = node
+  const { first, second } = rolls
 
-    else if (first + second === 10) {
-      const next = node.next
-      if (next) {
-        total += next.rolls.first
-      }
-    }
-
-    round++
-    node = node.next
+  if (first === 10 && node.next) {
+      return first + node.next.rolls.first
   }
 
-  this.total = total
+  return first + second
+}
+
+
+const handleSpare = function(node) {
+  if (!node) return 0 
+  return node.rolls.first
 }
 
 exports.tally = tally
