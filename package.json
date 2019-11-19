@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "testBowling": "mocha ./server/bowling/test.js",
-    "testBowlingAPI": "mocha ./server/test.js",
-    "start": "nodemon ./server/index.js",
+    "testBowlingLogic": "mocha ./bowlingAPI/bowling/test.js",
+    "testBowlingAPI": "mocha ./bowlingAPI/server/test.js",
+    "bowlingAPI": "nodemon ./bowlingAPI/server/index.js",
+    "client": "nodemon ./client/server.js",
     "build": "webpack --watch"
   },
   "repository": {

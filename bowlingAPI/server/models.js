@@ -1,4 +1,4 @@
-const { Game } = require('./bowling/game')
+const { Game } = require('../bowling/game')
 
 exports.getStatus = (cb) => cb(null, Game.formatData())
 

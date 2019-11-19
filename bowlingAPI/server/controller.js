@@ -1,6 +1,7 @@
 const { getStatus, addRoll } = require('./models')
 
 exports.getStatus = (req, res) => {
+  console.log('serving up game status')
   getStatus((err, game) => {
     if (err) {
       console.log(err)
@@ -14,6 +15,7 @@ exports.getStatus = (req, res) => {
 
 exports.addRoll = (req, res) => {
   const { score } = req.params
+  console.log(`adding score: ${score} to game` )
   addRoll(score, (err, game) => {
     if (err) {
       console.log(err)
