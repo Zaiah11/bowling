@@ -1,8 +1,8 @@
-const { Game, formatGame } = require('./bowling/game')
+const { Game } = require('./bowling/game')
 
-exports.getStatus = (cb) => cb(null, Game.formatGame())
+exports.getStatus = (cb) => cb(null, Game.formatData())
 
 exports.addRoll = (score, cb) => {
   Game.addRoll(Number(score))
-  cb(null, Game.formatGame())
+  cb(null, Game.formatData())
 }

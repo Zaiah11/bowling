@@ -1,4 +1,4 @@
-const formatGame = function() {
+const formatData = function() {
   const { frames, total } = this
   const { head } = frames
   const framesArr = []
@@ -17,4 +17,4 @@ const formatGame = function() {
   }
 }
 
-exports.formatGame = formatGame
+exports.formatData = formatData

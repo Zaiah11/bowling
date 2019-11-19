@@ -1,8 +1,8 @@
 FROM node
 
-WORKDIR /bowling
+WORKDIR /server
 
-COPY /server .
+COPY . .
 
 RUN npm install 
 
