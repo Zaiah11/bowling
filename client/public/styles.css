@@ -1,0 +1,26 @@
+
+.score-card {
+  display: flex;
+}
+
+.frame {
+  width: 4rem;
+  height: 4rem;
+  border-style: solid;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.rolls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.roll {
+  font-size: 1rem;
+  text-align: center;
+  width: 1rem;
+  border-style: solid;
+  border-top-style: none;
+  border-right-style: none;
+}

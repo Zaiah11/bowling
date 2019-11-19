@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import Card from './components/Card'
+import Score from './components/Score'
 
 const App = () => {
   const [ gameData, setGameData ] = useState({
@@ -6,15 +8,13 @@ const App = () => {
     frames: []
   })
 
-  const [ score, setScore ] = useState('')
-
   useEffect(() => {
     fetch('/game/status')
     .then(data => data.json())
     .then(data => setGameData(data))
   }, [])
 
-  const addRoll = () => {
+  const addRoll = (score) => {
     fetch(`/game/addRoll/${score}`, { method: 'POST' })
     .then(data => data.json())
     .then(data => setGameData(data))
@@ -24,27 +24,12 @@ const App = () => {
 
   return (
     <div>
-      {frames.map((frame, i) => (
-        <div key={i}>
-          <div>first: {frame.rolls.first}</div>
-          <div>second: {frame.rolls.second}</div>
-          <div>score: {frame.score}</div>
-        </div> 
-      ))}
-      <form onSubmit={e => {
-        e.preventDefault()
-        addRoll()
-        setScore('')
-      }}>
-        <input 
-          value={score}
-          onChange={e => {
-            e.preventDefault()
-            setScore(e.target.value)
-          }}
-        ></input>
-        <button type="submit">submit</button>
-      </form>
+      <Card
+        frames={frames}
+      />
+      <Score
+        addRoll={addRoll}
+      />
     </div>
   )
 }
