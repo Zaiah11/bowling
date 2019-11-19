@@ -1,5 +1,4 @@
-const { Frame } = require('../constructors/frame')
-
+const { formatGame } = require('./formatGame')
 const { addRoll } = require('./addRoll')
 const { 
   tally,
@@ -19,7 +18,8 @@ const methods = {
   handleFirstRoll,
   handleFirstRollOfNewFrame,
   handleSecondRollOfFrame,
-  handleBonusRoll
+  handleBonusRoll,
+  formatGame
 }
 
 exports.methods = methods

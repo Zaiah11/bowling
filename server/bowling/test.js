@@ -1,7 +1,7 @@
 const { expect } = require('chai')
-const { Game } = require('./server/bowling/constructors/game')
+const { Game } = require('./constructors/game')
 
-describe('Game', () => {
+describe('Game Logic', () => {
 
   it('should have property frames', () => {
     const newGame = new Game()
