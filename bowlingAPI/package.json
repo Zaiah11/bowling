@@ -1,0 +1,20 @@
+{
+  "name": "bowlingAPI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "testBowlingLogic": "mocha ./bowling/test.js",
+    "testBowlingAPI": "mocha ./server/test.js",
+    "start": "node ./server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.2",
+    "chai": "^4.2.0",
+    "axios": "^0.19.0",
+    "nodemon": "^1.19.4"
+  }
+}

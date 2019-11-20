@@ -81,80 +81,20 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./client/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./client/index.js":
-/*!*************************!*\
-  !*** ./client/index.js ***!
-  \*************************/
+/***/ "./index.js":
+/*!******************!*\
+  !*** ./index.js ***!
+  \******************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _src_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./src/App */ \"./client/src/App.js\");\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_App__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null), document.getElementById('root'));\n\n//# sourceURL=webpack:///./client/index.js?");
-
-/***/ }),
-
-/***/ "./client/src/App.js":
-/*!***************************!*\
-  !*** ./client/src/App.js ***!
-  \***************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _components_Card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Card */ \"./client/src/components/Card.js\");\n/* harmony import */ var _components_Score__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Score */ \"./client/src/components/Score.js\");\n/* harmony import */ var _components_Total__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Total */ \"./client/src/components/Total.js\");\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }\n\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance\"); }\n\nfunction _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === \"[object Arguments]\")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"] != null) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; }\n\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\n\n\n\n\n\n\nvar App = function App() {\n  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useState\"])({\n    total: 0,\n    frames: []\n  }),\n      _useState2 = _slicedToArray(_useState, 2),\n      gameData = _useState2[0],\n      setGameData = _useState2[1];\n\n  Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useEffect\"])(function () {\n    fetch('/game/status').then(function (data) {\n      return data.json();\n    }).then(function (data) {\n      return setGameData(data);\n    });\n  }, []);\n\n  var addRoll = function addRoll(score) {\n    fetch(\"/game/addRoll/\".concat(score), {\n      method: 'POST'\n    }).then(function (data) {\n      return data.json();\n    }).then(function (data) {\n      return setGameData(data);\n    });\n  };\n\n  var total = gameData.total,\n      frames = gameData.frames,\n      possible = gameData.possible;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Total__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n    total: total\n  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Card__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {\n    frames: frames\n  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Score__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    addRoll: addRoll,\n    possible: possible\n  }));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\n\n//# sourceURL=webpack:///./client/src/App.js?");
-
-/***/ }),
-
-/***/ "./client/src/components/Card.js":
-/*!***************************************!*\
-  !*** ./client/src/components/Card.js ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Frame__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Frame */ \"./client/src/components/Frame.js\");\n\n\n\nvar Card = function Card(_ref) {\n  var frames = _ref.frames;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"score-card\"\n  }, frames.map(function (frame, i) {\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n      key: i\n    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Frame__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {\n      frame: frame\n    }));\n  }));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Card);\n\n//# sourceURL=webpack:///./client/src/components/Card.js?");
-
-/***/ }),
-
-/***/ "./client/src/components/Frame.js":
-/*!****************************************!*\
-  !*** ./client/src/components/Frame.js ***!
-  \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nvar Frame = function Frame(_ref) {\n  var frame = _ref.frame;\n  var rolls = frame.rolls,\n      score = frame.score;\n  var first = rolls.first,\n      second = rolls.second;\n\n  var styleFirstRoll = function styleFirstRoll() {\n    if (first === null) return '.';\n    if (first === 10) return '';\n    return first;\n  };\n\n  var styleSecondRoll = function styleSecondRoll() {\n    if (first === 10) return 'X';\n    if (second === null) return '.';\n    if (second === 0) return '-';\n    if (first + second === 10) return '\\\\';\n    return second;\n  };\n\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"frame\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"rolls\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"roll\"\n  }, styleFirstRoll()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"roll\"\n  }, styleSecondRoll())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, score));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Frame);\n\n//# sourceURL=webpack:///./client/src/components/Frame.js?");
-
-/***/ }),
-
-/***/ "./client/src/components/Score.js":
-/*!****************************************!*\
-  !*** ./client/src/components/Score.js ***!
-  \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nvar Score = function Score(_ref) {\n  var addRoll = _ref.addRoll,\n      possible = _ref.possible;\n\n  var handleClick = function handleClick(e) {\n    e.preventDefault();\n    addRoll(e.target.innerHTML);\n  };\n\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"score-buttons\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"row\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 1 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"1\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 2 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"2\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 3 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"3\")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"row\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 4 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"4\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 5 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"5\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 6 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"6\")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"row\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 7 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"7\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 8 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"8\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 9 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"9\")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"row\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 0 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"0\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 10 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"10\")));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Score);\n\n//# sourceURL=webpack:///./client/src/components/Score.js?");
-
-/***/ }),
-
-/***/ "./client/src/components/Total.js":
-/*!****************************************!*\
-  !*** ./client/src/components/Total.js ***!
-  \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nvar Total = function Total(_ref) {\n  var total = _ref.total;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"h1\", null, \"TOTAL: \", total));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Total);\n\n//# sourceURL=webpack:///./client/src/components/Total.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _src_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./src/App */ \"./src/App.js\");\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_App__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null), document.getElementById('root'));\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -287,6 +227,66 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 
 "use strict";
 eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs/scheduler-tracing.development.js */ \"./node_modules/scheduler/cjs/scheduler-tracing.development.js\");\n}\n\n\n//# sourceURL=webpack:///./node_modules/scheduler/tracing.js?");
+
+/***/ }),
+
+/***/ "./src/App.js":
+/*!********************!*\
+  !*** ./src/App.js ***!
+  \********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _components_Card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Card */ \"./src/components/Card.js\");\n/* harmony import */ var _components_Score__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Score */ \"./src/components/Score.js\");\n/* harmony import */ var _components_Total__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Total */ \"./src/components/Total.js\");\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }\n\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance\"); }\n\nfunction _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === \"[object Arguments]\")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"] != null) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; }\n\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\n\n\n\n\n\n\nvar App = function App() {\n  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useState\"])({\n    total: 0,\n    frames: []\n  }),\n      _useState2 = _slicedToArray(_useState, 2),\n      gameData = _useState2[0],\n      setGameData = _useState2[1];\n\n  Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useEffect\"])(function () {\n    fetch('/game/status').then(function (data) {\n      return data.json();\n    }).then(function (data) {\n      return setGameData(data);\n    });\n  }, []);\n\n  var addRoll = function addRoll(score) {\n    fetch(\"/game/addRoll/\".concat(score), {\n      method: 'POST'\n    }).then(function (data) {\n      return data.json();\n    }).then(function (data) {\n      return setGameData(data);\n    });\n  };\n\n  var total = gameData.total,\n      frames = gameData.frames,\n      possible = gameData.possible;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Total__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n    total: total\n  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Card__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {\n    frames: frames\n  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Score__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    addRoll: addRoll,\n    possible: possible\n  }));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\n\n//# sourceURL=webpack:///./src/App.js?");
+
+/***/ }),
+
+/***/ "./src/components/Card.js":
+/*!********************************!*\
+  !*** ./src/components/Card.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Frame__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Frame */ \"./src/components/Frame.js\");\n\n\n\nvar Card = function Card(_ref) {\n  var frames = _ref.frames;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"score-card\"\n  }, frames.map(function (frame, i) {\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n      key: i\n    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Frame__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {\n      frame: frame\n    }));\n  }));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Card);\n\n//# sourceURL=webpack:///./src/components/Card.js?");
+
+/***/ }),
+
+/***/ "./src/components/Frame.js":
+/*!*********************************!*\
+  !*** ./src/components/Frame.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nvar Frame = function Frame(_ref) {\n  var frame = _ref.frame;\n  var rolls = frame.rolls,\n      score = frame.score;\n  var first = rolls.first,\n      second = rolls.second;\n\n  var styleFirstRoll = function styleFirstRoll() {\n    if (first === null) return '.';\n    if (first === 10) return '';\n    return first;\n  };\n\n  var styleSecondRoll = function styleSecondRoll() {\n    if (first === 10) return 'X';\n    if (second === null) return '.';\n    if (second === 0) return '-';\n    if (first + second === 10) return '\\\\';\n    return second;\n  };\n\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"frame\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"rolls\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"roll\"\n  }, styleFirstRoll()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"roll\"\n  }, styleSecondRoll())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, score));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Frame);\n\n//# sourceURL=webpack:///./src/components/Frame.js?");
+
+/***/ }),
+
+/***/ "./src/components/Score.js":
+/*!*********************************!*\
+  !*** ./src/components/Score.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nvar Score = function Score(_ref) {\n  var addRoll = _ref.addRoll,\n      possible = _ref.possible;\n\n  var handleClick = function handleClick(e) {\n    e.preventDefault();\n    addRoll(e.target.innerHTML);\n  };\n\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"score-buttons\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"row\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 1 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"1\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 2 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"2\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 3 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"3\")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"row\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 4 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"4\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 5 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"5\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 6 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"6\")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"row\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 7 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"7\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 8 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"8\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 9 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"9\")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: \"row\"\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 0 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"0\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    className: 10 <= possible ? \"active score-button\" : \"score-button\",\n    onClick: handleClick\n  }, \"10\")));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Score);\n\n//# sourceURL=webpack:///./src/components/Score.js?");
+
+/***/ }),
+
+/***/ "./src/components/Total.js":
+/*!*********************************!*\
+  !*** ./src/components/Total.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nvar Total = function Total(_ref) {\n  var total = _ref.total;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"h1\", null, \"TOTAL: \", total));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Total);\n\n//# sourceURL=webpack:///./src/components/Total.js?");
 
 /***/ })
 

@@ -7,6 +7,6 @@ services:
     depends_on:
       - server
   server:  
-    build: ./server
+    build: ./bowlingAPI
     ports:
       - "3000:3000"
