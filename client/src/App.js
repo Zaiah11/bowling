@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Card from './components/Card'
 import Score from './components/Score'
+import Total from './components/Total'
 
 const App = () => {
   const [ gameData, setGameData ] = useState({
@@ -20,10 +21,13 @@ const App = () => {
     .then(data => setGameData(data))
   }
 
-  const { frames, possible } = gameData
+  const { total, frames, possible } = gameData
 
   return (
     <div>
+      <Total
+        total={total}
+      />
       <Card
         frames={frames}
       />

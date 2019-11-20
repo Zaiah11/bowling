@@ -1,15 +1,14 @@
 const formatData = function() {
   const { frames, total } = this
   const { tail } = frames
-
-  let possible = tail && tail.rolls.second === null ? 10 - tail.rolls.first : 10
-
   return {
     total,
     frames: generateFramesArray(frames),
-    possible 
+    possible: generatePossible(tail)
   }
 }
+
+const generatePossible = (tail) => tail && tail.rolls.second === null ? 10 - tail.rolls.first : 10
 
 const { Frame } = require('../constructors/frame')
 

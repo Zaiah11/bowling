@@ -6,7 +6,6 @@ const Score = ({ addRoll, possible }) => {
     addRoll(e.target.innerHTML)
   }
 
-  console.log(possible)
   return (
     <div 
       className="score-buttons"
