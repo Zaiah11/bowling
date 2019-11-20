@@ -35,4 +35,13 @@ describe('Bowling API', () => {
       })
       .catch((err) => done(err))
   })
+
+  it('should include current possible rolls in response', (done) => {
+    axios.post(`${url}/game/addRoll/5`)
+      .then(({ data }) => {
+        expect(data.possible).to.equal(5)
+        done()
+      })
+      .catch((err) => done(err))
+  })
 })

@@ -7,8 +7,10 @@
   width: 4rem;
   height: 4rem;
   border-style: solid;
+  border-width: 0.05rem;
   text-align: center;
   font-size: 2rem;
+  margin: 0.03rem;
 }
 
 .rolls {
@@ -19,8 +21,9 @@
 .roll {
   font-size: 1rem;
   text-align: center;
-  width: 1rem;
+  width: 1.2rem;
   border-style: solid;
+  border-width: 0.05rem;
   border-top-style: none;
   border-right-style: none;
 }
@@ -41,13 +44,18 @@
   border-width: 0.03rem;
   margin: 0.03rem;
   color: rgb(119, 119, 119);
+  background-color: rgba(0, 0, 0, 0.157);
 }
 
-.score-button:hover {
+.active {
+  background-color: white;
+}
+
+.active:hover {
   color: black;
 }
 
-.score-button:active {
+.active:active {
   transform: scale(0.99);
 }
 

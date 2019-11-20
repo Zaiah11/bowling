@@ -20,7 +20,7 @@ const App = () => {
     .then(data => setGameData(data))
   }
 
-  const { frames } = gameData
+  const { frames, possible } = gameData
 
   return (
     <div>
@@ -29,6 +29,7 @@ const App = () => {
       />
       <Score
         addRoll={addRoll}
+        possible={possible}
       />
     </div>
   )

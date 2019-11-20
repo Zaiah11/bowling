@@ -1,68 +1,58 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-const Score = ({ addRoll }) => {
+const Score = ({ addRoll, possible }) => {
+  const handleClick = (e) => {
+    e.preventDefault()
+    addRoll(e.target.innerHTML)
+  }
 
+  console.log(possible)
   return (
-    <form 
+    <div 
       className="score-buttons"
-      onSubmit={e => {
-        e.preventDefault()
-        console.log(e.target)
-      }}
     >
       <div className="row">
-        <div className="score-button" onClick={e => {
-          e.preventDefault()
-          addRoll(e.target.innerHTML)
-        }}>1</div>
-        <div className="score-button" onClick={e => {
-          e.preventDefault()
-          addRoll(e.target.innerHTML)
-        }}>2</div>
-        <div className="score-button" onClick={e => {
-          e.preventDefault()
-          addRoll(e.target.innerHTML)
-        }}>3</div>
+        <div 
+          className={1 <= possible ? "active score-button" : "score-button"} 
+          onClick={handleClick}>1</div>
+        <div 
+          className={2 <= possible ? "active score-button" : "score-button"} 
+          onClick={handleClick}>2</div>
+        <div 
+          className={3 <= possible ? "active score-button" : "score-button"} 
+          onClick={handleClick}>3</div>
       </div>
       <div className="row">
-        <div className="score-button" onClick={e => {
-          e.preventDefault()
-          addRoll(e.target.innerHTML)
-        }}>4</div>
-        <div className="score-button" onClick={e => {
-          e.preventDefault()
-          addRoll(e.target.innerHTML)
-        }}>5</div>
-        <div className="score-button" onClick={e => {
-          e.preventDefault()
-          addRoll(e.target.innerHTML)
-        }}>6</div>
+        <div 
+          className={4 <= possible ? "active score-button" : "score-button"} 
+          onClick={handleClick}>4</div>
+        <div 
+          className={5 <= possible ? "active score-button" : "score-button"} 
+          onClick={handleClick}>5</div>
+        <div 
+          className={6 <= possible ? "active score-button" : "score-button"} 
+          onClick={handleClick}>6</div>
       </div>
       <div className="row">
-        <div className="score-button" onClick={e => {
-          e.preventDefault()
-          addRoll(e.target.innerHTML)
-        }}>7</div>
-        <div className="score-button" onClick={e => {
-          e.preventDefault()
-          addRoll(e.target.innerHTML)
-        }}>8</div>
-        <div className="score-button" onClick={e => {
-          e.preventDefault()
-          addRoll(e.target.innerHTML)
-        }}>9</div>
+        <div 
+          className={7 <= possible ? "active score-button" : "score-button"} 
+          onClick={handleClick}>7</div>
+        <div 
+          className={8 <= possible ? "active score-button" : "score-button"} 
+          onClick={handleClick}>8</div>
+        <div 
+          className={9 <= possible ? "active score-button" : "score-button"} 
+          onClick={handleClick}>9</div>
       </div>
       <div className="row">
-        <div className="score-button" onClick={e => {
-          e.preventDefault()
-          addRoll(e.target.innerHTML)
-        }}>0</div>
-        <div className="score-button" onClick={e => {
-          e.preventDefault()
-          addRoll(e.target.innerHTML)
-        }}>10</div>
+        <div 
+          className={0 <= possible ? "active score-button" : "score-button"} 
+          onClick={handleClick}>0</div>
+        <div 
+          className={10 <= possible ? "active score-button" : "score-button"} 
+          onClick={handleClick}>10</div>
       </div>
-    </form>
+    </div>
   )
 }
 
