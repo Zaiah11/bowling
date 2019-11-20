@@ -1,6 +1,7 @@
 
 .score-card {
   display: flex;
+  margin-bottom: 2.5rem;
 }
 
 .frame {
@@ -30,11 +31,11 @@
 
 .score-buttons {
   width: 7rem;
+  margin: 0 auto;
 }
 
 .score-buttons .row{
   display: flex;
-
 }
 
 .score-button {
@@ -58,6 +59,3 @@
 .active:active {
   transform: scale(0.99);
 }
-
-
-

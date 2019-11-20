@@ -5,14 +5,15 @@ const Frame = ({ frame }) => {
   const { first, second } = rolls
 
   const styleFirstRoll = () => {
-    if (score === null) return '.'
+    if (first === null) return '.'
     if (first === 10) return ''
     return first
   }
 
   const styleSecondRoll = () => {
     if (first === 10) return 'X'
-    if (score === null) return '.'
+    if (second === null) return '.'
+    if (second === 0) return '-'
     if (first + second === 10) return '\\'
     return second
   }

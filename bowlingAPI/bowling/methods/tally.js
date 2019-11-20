@@ -10,13 +10,14 @@ const getTotal = function (node, round = 1) {
   const { rolls } = node
   const { first, second } = rolls
 
-  let total = first + second
+  let score = first + second
 
-  if (first === 10) total += tallyStrike(node.next)
-  else if (first + second === 10) total += tallySpare(node.next)
+  if (first === 10) score += tallyStrike(node.next)
+  else if (first + second === 10) score += tallySpare(node.next)
 
-  node.score = total
-  return total + getTotal(node.next, round + 1)
+  node.score = score
+
+  return score + getTotal(node.next, round + 1)
 }
 
 
